@@ -1,0 +1,183 @@
+2022-11-19 16:52:51,696 [INFO] SPOTER(
+  (transformer): Transformer(
+    (encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (2): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (3): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (4): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (5): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (norm): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+    )
+    (decoder): TransformerDecoder(
+      (layers): ModuleList(
+        (0): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+        (1): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+        (2): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+        (3): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+        (4): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+        (5): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (norm): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (linear_class): Linear(in_features=108, out_features=100, bias=True)
+)
+2022-11-19 16:52:51,698 [INFO] Total number of trainable parameters: 5922772
+2022-11-19 16:53:08,282 [INFO] Starting plotcheck...
+
+
+2022-11-19 16:53:08,283 [INFO] 
+Testing checkpointed models starting...
+
+2022-11-19 16:53:08,284 [INFO] 
+The top result was recorded at 0 testing accuracy. The best checkpoint is .
+2022-11-19 16:53:08,586 [INFO] 
+Any desired statistics have been plotted.
+The experiment is finished.

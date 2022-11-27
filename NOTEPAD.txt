@@ -1,0 +1,19 @@
+- Graphs
+	- Hyperparameter tuning (Ensure parameters remain similar)
+        Read Leslie Smith's paper on hyperparameter tuning
+		Follow the same procedure for hyperparameter tuning
+		-	Learning Rate 
+		- 	Momentum 
+		- 	Weight decay
+		
+		-	Number of encoder layers
+		-	Number of decoder layers
+		-	Number of heads
+
+- What does it do well on
+	- Confusion Matrix
+
+
+1. Run their model
+2. Get their results
+3. Different Accuracy metrics, seeing where models go wrong

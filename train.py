@@ -71,8 +71,227 @@ def get_default_args():
                         help="Determines whether continuous statistics should be plotted at the end")
     parser.add_argument("--plot_lr", type=bool, default=True,
                         help="Determines whether the LR should be plotted at the end")
-
+    # Adding momentum and weight decay
+    parser.add_argument("--momentum", type=float, default=0, help="Momentum for the loss plot")
+    parser.add_argument("--weight_decay", type=float, default=0, help="Weight decay for the loss plot")
     return parser
+
+def train_findlr(args):
+    
+    # MARK: TRAINING PREPARATION AND MODULES
+
+    # Initialize all the random seeds
+    random.seed(args.seed)
+    np.random.seed(args.seed)
+    os.environ["PYTHONHASHSEED"] = str(args.seed)
+    torch.manual_seed(args.seed)
+    torch.cuda.manual_seed(args.seed)
+    torch.cuda.manual_seed_all(args.seed)
+    torch.backends.cudnn.deterministic = True
+    g = torch.Generator()
+    g.manual_seed(args.seed)
+
+    # Set the output format to print into the console and save into LOG file
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        handlers=[
+            logging.FileHandler(args.experiment_name + "_" + str(args.experimental_train_split).replace(".", "") + ".log")
+        ]
+    )
+
+    # Set device to CUDA only if applicable
+    device = torch.device("cpu")
+    if torch.cuda.is_available():
+        device = torch.device("cuda")
+
+    # Construct the model
+    slrt_model = SPOTER(num_classes=args.num_classes, hidden_dim=args.hidden_dim)
+    slrt_model.train(True)
+    slrt_model.to(device)
+
+    #  Print the model summary
+    # Print number of trainable parameters
+
+    logging.info(slrt_model)
+    # print(slrt_model)
+
+    total_params = sum(p.numel() for p in slrt_model.parameters() if p.requires_grad)
+    logging.info("Total number of trainable parameters: {}".format(total_params))
+    print("Total number of trainable parameters: {}".format(total_params))
+    # Construct the other modules
+    cel_criterion = nn.CrossEntropyLoss()
+    
+    # scheduler = optim.lr_scheduler.ReduceLROnPlateau(sgd_optimizer, factor=args.scheduler_factor, patience=args.scheduler_patience)
+
+    # Ensure that the path for checkpointing and for images both exist
+    Path("out-checkpoints/" + args.experiment_name + "/").mkdir(parents=True, exist_ok=True)
+    Path("out-img/").mkdir(parents=True, exist_ok=True)
+
+
+    # MARK: DATA
+
+    # Training set
+    transform = transforms.Compose([GaussianNoise(args.gaussian_mean, args.gaussian_std)])
+    train_set = CzechSLRDataset(args.training_set_path, transform=transform, augmentations=True)
+
+    # Validation set
+    if args.validation_set == "from-file":
+        val_set = CzechSLRDataset(args.validation_set_path)
+        val_loader = DataLoader(val_set, shuffle=True, generator=g)
+
+    elif args.validation_set == "split-from-train":
+        train_set, val_set = __balance_val_split(train_set, 0.2)
+
+        val_set.transform = None
+        val_set.augmentations = False
+        val_loader = DataLoader(val_set, shuffle=True, generator=g)
+
+    else:
+        val_loader = None
+
+    # Testing set
+    if args.testing_set_path:
+        eval_set = CzechSLRDataset(args.testing_set_path)
+        eval_loader = DataLoader(eval_set, shuffle=True, generator=g)
+
+    else:
+        eval_loader = None
+
+    # Final training set refinements
+    if args.experimental_train_split:
+        train_set = __split_of_train_sequence(train_set, args.experimental_train_split)
+
+    train_loader = DataLoader(train_set, shuffle=True, generator=g)
+
+
+    # MARK: TRAINING
+    train_acc, val_acc = 0, 0
+    losses, train_accs, val_accs = [], [], []
+    lr_progress = []
+    top_train_acc, top_val_acc = 0, 0
+    checkpoint_index = 0
+
+    if args.experimental_train_split:
+        print("Starting " + args.experiment_name + "_" + str(args.experimental_train_split).replace(".", "") + "...\n\n")
+        logging.info("Starting " + args.experiment_name + "_" + str(args.experimental_train_split).replace(".", "") + "...\n\n")
+
+    else:
+        print("Starting " + args.experiment_name + "...\n\n")
+        logging.info("Starting " + args.experiment_name + "...\n\n")
+    cur_lr = 1e-10
+    for epoch in range(args.epochs):
+        #  update the learning rate
+        cur_lr = cur_lr * 4
+        sgd_optimizer = optim.SGD(slrt_model.parameters(), lr=cur_lr, momentum = args.momentum, weight_decay=args.weight_decay)
+        train_loss, _, _, train_acc = train_epoch(slrt_model, train_loader, cel_criterion, sgd_optimizer, device)
+        losses.append(train_loss.item() / len(train_loader))
+        lr_progress.append(cur_lr)
+        train_accs.append(train_acc)
+
+        if val_loader:
+            slrt_model.train(False)
+            _, _, val_acc = evaluate(slrt_model, val_loader, device)
+            slrt_model.train(True)
+            val_accs.append(val_acc)
+
+        # # Save checkpoints if they are best in the current subset
+        # if args.save_checkpoints:
+        #     if train_acc > top_train_acc:
+        #         top_train_acc = train_acc
+        #         torch.save(slrt_model, "out-checkpoints/" + args.experiment_name + "/checkpoint_t_" + str(checkpoint_index) + ".pth")
+
+        #     if val_acc > top_val_acc:
+        #         top_val_acc = val_acc
+        #         torch.save(slrt_model, "out-checkpoints/" + args.experiment_name + "/checkpoint_v_" + str(checkpoint_index) + ".pth")
+
+        if epoch % args.log_freq == 0:
+            print("[" + str(epoch + 1) + "] TRAIN  loss: " + str(train_loss.item() / len(train_loader)) + " acc: " + str(train_acc))
+            logging.info("[" + str(epoch + 1) + "] TRAIN  loss: " + str(train_loss.item() / len(train_loader)) + " acc: " + str(train_acc))
+
+            if val_loader:
+                print("[" + str(epoch + 1) + "] VALIDATION  acc: " + str(val_acc))
+                logging.info("[" + str(epoch + 1) + "] VALIDATION  acc: " + str(val_acc))
+
+            print("")
+            logging.info("")
+
+        # Reset the top accuracies on static subsets
+        if epoch % 10 == 0:
+            top_train_acc, top_val_acc = 0, 0
+            checkpoint_index += 1
+
+    # MARK: TESTING
+
+    print("\nTesting checkpointed models starting...\n")
+    logging.info("\nTesting checkpointed models starting...\n")
+
+    top_result, top_result_name = 0, ""
+
+    if eval_loader:
+        for i in range(checkpoint_index):
+            for checkpoint_id in ["t", "v"]:
+                # tested_model = VisionTransformer(dim=2, mlp_dim=108, num_classes=100, depth=12, heads=8)
+                tested_model = torch.load("out-checkpoints/" + args.experiment_name + "/checkpoint_" + checkpoint_id + "_" + str(i) + ".pth")
+                tested_model.train(False)
+                _, _, eval_acc = evaluate(tested_model, eval_loader, device, print_stats=True)
+
+                if eval_acc > top_result:
+                    top_result = eval_acc
+                    top_result_name = args.experiment_name + "/checkpoint_" + checkpoint_id + "_" + str(i)
+
+                print("checkpoint_" + checkpoint_id + "_" + str(i) + "  ->  " + str(eval_acc))
+                logging.info("checkpoint_" + checkpoint_id + "_" + str(i) + "  ->  " + str(eval_acc))
+
+        print("\nThe top result was recorded at " + str(top_result) + " testing accuracy. The best checkpoint is " + top_result_name + ".")
+        logging.info("\nThe top result was recorded at " + str(top_result) + " testing accuracy. The best checkpoint is " + top_result_name + ".")
+
+
+    # PLOT 0: Performance (loss, accuracies) chart plotting
+    if args.plot_stats:
+        fig, ax = plt.subplots()
+        ax.plot(range(1, len(losses) + 1), losses, c="#D64436", label="Training loss")
+        ax.plot(range(1, len(train_accs) + 1), train_accs, c="#00B09B", label="Training accuracy")
+
+        if val_loader:
+            ax.plot(range(1, len(val_accs) + 1), val_accs, c="#E0A938", label="Validation accuracy")
+
+        ax.xaxis.set_major_locator(ticker.MaxNLocator(integer=True))
+
+        ax.set(xlabel="Epoch", ylabel="Accuracy / Loss", title="")
+        plt.legend(loc="upper center", bbox_to_anchor=(0.5, 1.05), ncol=4, fancybox=True, shadow=True, fontsize="xx-small")
+        ax.grid()
+
+        fig.savefig("out-img/" + args.experiment_name + "_loss.png")
+
+    # PLOT 1: Learning rate progress
+    if args.plot_lr:
+        fig1, ax1 = plt.subplots()
+        ax1.plot(range(1, len(lr_progress) + 1), lr_progress, label="LR")
+        ax1.set(xlabel="Epoch", ylabel="LR", title="")
+        ax1.grid()
+
+        fig1.savefig("out-img/" + args.experiment_name + "_lr.png")
+
+    print("\nAny desired statistics have been plotted.\nThe experiment is finished.")
+    logging.info("\nAny desired statistics have been plotted.\nThe experiment is finished.")
+
+    # Plot learning rate vs loss, learning rate vs accuracy
+    fig2, ax2 = plt.subplots()
+    ax2.plot(lr_progress, losses, label="Loss")
+    ax2.set(xlabel="LR", ylabel="Loss", title="")
+    ax2.grid()
+
+    fig2.savefig("out-img/" + args.experiment_name + "_findlr_lr_loss.png")
+
+    # Plot learning rate vs accuracy
+    fig3, ax3 = plt.subplots()
+    ax3.plot(lr_progress, train_accs, label="Training accuracy")
+    ax3.set(xlabel="LR", ylabel="Accuracy", title="")
+    ax3.grid()
+
+    fig3.savefig("out-img/" + args.experiment_name + "_findlr_lr_acc.png")
+
 
 
 def train(args):
@@ -109,9 +328,19 @@ def train(args):
     slrt_model.train(True)
     slrt_model.to(device)
 
+    #  Print the model summary
+    # Print number of trainable parameters
+
+    logging.info(slrt_model)
+    # print(slrt_model)
+
+    total_params = sum(p.numel() for p in slrt_model.parameters() if p.requires_grad)
+    logging.info("Total number of trainable parameters: {}".format(total_params))
+    print("Total number of trainable parameters: {}".format(total_params))
     # Construct the other modules
     cel_criterion = nn.CrossEntropyLoss()
-    sgd_optimizer = optim.SGD(slrt_model.parameters(), lr=args.lr)
+    sgd_optimizer = optim.SGD(slrt_model.parameters(), lr=args.lr, momentum = args.momentum, weight_decay=args.weight_decay)
+
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(sgd_optimizer, factor=args.scheduler_factor, patience=args.scheduler_patience)
 
     # Ensure that the path for checkpointing and for images both exist
@@ -268,4 +497,5 @@ def train(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("", parents=[get_default_args()], add_help=False)
     args = parser.parse_args()
-    train(args)
+    train_findlr(args)
+    # train(args)

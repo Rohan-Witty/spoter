@@ -1,0 +1,5 @@
+Run the file with lr in range {1e-1, 1e-2, 1e-3} 
+python -m train --experiment_name run0 --epochs 15 --lr 1e-1 --training_set_path  WLASL100_train_25fps.csv --validation_set_path WLASL100_val_25fps.csv --testing_set_path WLASL100_test_25fps.csv --num_classes 100
+python -m train --experiment_name run0 --epochs 15 --lr 1e-2 --training_set_path  WLASL100_train_25fps.csv --validation_set_path WLASL100_val_25fps.csv --testing_set_path WLASL100_test_25fps.csv --num_classes 100
+python -m train --experiment_name run0 --epochs 15 --lr 1e-3 --training_set_path  WLASL100_train_25fps.csv --validation_set_path WLASL100_val_25fps.csv --testing_set_path WLASL100_test_25fps.csv --num_classes 100
+echo "Done"

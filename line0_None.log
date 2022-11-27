@@ -1,0 +1,348 @@
+2022-11-19 17:20:16,988 [INFO] SPOTER(
+  (transformer): Transformer(
+    (encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (2): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (3): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (4): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+        (5): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (norm): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+    )
+    (decoder): TransformerDecoder(
+      (layers): ModuleList(
+        (0): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+        (1): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+        (2): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+        (3): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+        (4): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+        (5): SPOTERTransformerDecoderLayer(
+          (multihead_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=108, out_features=108, bias=True)
+          )
+          (linear1): Linear(in_features=108, out_features=2048, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=2048, out_features=108, bias=True)
+          (norm1): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (norm3): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (dropout3): Dropout(p=0.1, inplace=False)
+        )
+      )
+      (norm): LayerNorm((108,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (linear_class): Linear(in_features=108, out_features=100, bias=True)
+)
+2022-11-19 17:20:16,990 [INFO] Total number of trainable parameters: 5922772
+2022-11-19 17:20:33,519 [INFO] Starting line0...
+
+
+2022-11-19 17:20:40,696 [INFO] Problematic normalization
+2022-11-19 17:20:40,882 [INFO] Problematic normalization
+2022-11-19 17:20:46,608 [INFO] Problematic normalization
+2022-11-19 17:20:46,609 [INFO] Problematic normalization
+2022-11-19 17:20:46,610 [INFO] Problematic normalization
+2022-11-19 17:20:46,611 [INFO] Problematic normalization
+2022-11-19 17:20:46,611 [INFO] Problematic normalization
+2022-11-19 17:20:46,612 [INFO] Problematic normalization
+2022-11-19 17:20:46,612 [INFO] Problematic normalization
+2022-11-19 17:20:46,613 [INFO] Problematic normalization
+2022-11-19 17:20:46,613 [INFO] Problematic normalization
+2022-11-19 17:20:46,613 [INFO] Problematic normalization
+2022-11-19 17:20:46,614 [INFO] Problematic normalization
+2022-11-19 17:20:46,614 [INFO] Problematic normalization
+2022-11-19 17:20:46,615 [INFO] Problematic normalization
+2022-11-19 17:20:46,615 [INFO] Problematic normalization
+2022-11-19 17:20:46,616 [INFO] Problematic normalization
+2022-11-19 17:20:46,616 [INFO] Problematic normalization
+2022-11-19 17:20:46,617 [INFO] Problematic normalization
+2022-11-19 17:20:46,617 [INFO] Problematic normalization
+2022-11-19 17:20:46,618 [INFO] Problematic normalization
+2022-11-19 17:20:46,618 [INFO] Problematic normalization
+2022-11-19 17:20:46,619 [INFO] Problematic normalization
+2022-11-19 17:20:46,619 [INFO] Problematic normalization
+2022-11-19 17:20:46,620 [INFO] Problematic normalization
+2022-11-19 17:20:46,620 [INFO] Problematic normalization
+2022-11-19 17:20:46,621 [INFO] Problematic normalization
+2022-11-19 17:20:46,621 [INFO] Problematic normalization
+2022-11-19 17:20:46,621 [INFO] Problematic normalization
+2022-11-19 17:20:47,830 [INFO] Problematic normalization
+2022-11-19 17:20:47,831 [INFO] Problematic normalization
+2022-11-19 17:20:47,832 [INFO] Problematic normalization
+2022-11-19 17:20:47,832 [INFO] Problematic normalization
+2022-11-19 17:20:47,833 [INFO] Problematic normalization
+2022-11-19 17:20:47,833 [INFO] Problematic normalization
+2022-11-19 17:20:47,834 [INFO] Problematic normalization
+2022-11-19 17:20:47,834 [INFO] Problematic normalization
+2022-11-19 17:20:47,835 [INFO] Problematic normalization
+2022-11-19 17:20:47,835 [INFO] Problematic normalization
+2022-11-19 17:20:47,836 [INFO] Problematic normalization
+2022-11-19 17:20:47,836 [INFO] Problematic normalization
+2022-11-19 17:20:47,836 [INFO] Problematic normalization
+2022-11-19 17:20:47,837 [INFO] Problematic normalization
+2022-11-19 17:20:47,837 [INFO] Problematic normalization
+2022-11-19 17:20:47,838 [INFO] Problematic normalization
+2022-11-19 17:20:47,838 [INFO] Problematic normalization
+2022-11-19 17:20:47,839 [INFO] Problematic normalization
+2022-11-19 17:20:47,839 [INFO] Problematic normalization
+2022-11-19 17:20:47,840 [INFO] Problematic normalization
+2022-11-19 17:20:47,840 [INFO] Problematic normalization
+2022-11-19 17:20:47,841 [INFO] Problematic normalization
+2022-11-19 17:20:47,841 [INFO] Problematic normalization
+2022-11-19 17:20:47,842 [INFO] Problematic normalization
+2022-11-19 17:20:47,842 [INFO] Problematic normalization
+2022-11-19 17:20:47,843 [INFO] Problematic normalization
+2022-11-19 17:20:47,843 [INFO] Problematic normalization
+2022-11-19 17:20:47,844 [INFO] Problematic normalization
+2022-11-19 17:20:47,844 [INFO] Problematic normalization
+2022-11-19 17:20:47,845 [INFO] Problematic normalization
+2022-11-19 17:20:47,845 [INFO] Problematic normalization
+2022-11-19 17:20:47,846 [INFO] Problematic normalization
+2022-11-19 17:20:54,361 [INFO] Problematic normalization
+2022-11-19 17:21:00,249 [INFO] Problematic normalization
+2022-11-19 17:21:13,939 [INFO] Problematic normalization
+2022-11-19 17:21:13,941 [INFO] Problematic normalization
+2022-11-19 17:21:14,908 [INFO] Problematic normalization
+2022-11-19 17:21:14,908 [INFO] Problematic normalization
+2022-11-19 17:21:14,909 [INFO] Problematic normalization
+2022-11-19 17:21:14,910 [INFO] Problematic normalization
+2022-11-19 17:21:14,910 [INFO] Problematic normalization
+2022-11-19 17:21:14,911 [INFO] Problematic normalization
+2022-11-19 17:21:14,911 [INFO] Problematic normalization
+2022-11-19 17:21:14,912 [INFO] Problematic normalization
+2022-11-19 17:21:14,912 [INFO] Problematic normalization
+2022-11-19 17:21:14,913 [INFO] Problematic normalization
+2022-11-19 17:21:14,913 [INFO] Problematic normalization
+2022-11-19 17:21:14,914 [INFO] Problematic normalization
+2022-11-19 17:21:14,915 [INFO] Problematic normalization
+2022-11-19 17:21:14,915 [INFO] Problematic normalization
+2022-11-19 17:21:14,916 [INFO] Problematic normalization
+2022-11-19 17:21:14,917 [INFO] Problematic normalization
+2022-11-19 17:21:14,917 [INFO] Problematic normalization
+2022-11-19 17:21:14,918 [INFO] Problematic normalization
+2022-11-19 17:21:14,918 [INFO] Problematic normalization
+2022-11-19 17:21:14,919 [INFO] Problematic normalization
+2022-11-19 17:21:14,919 [INFO] Problematic normalization
+2022-11-19 17:21:14,920 [INFO] Problematic normalization
+2022-11-19 17:21:14,920 [INFO] Problematic normalization
+2022-11-19 17:21:14,921 [INFO] Problematic normalization
+2022-11-19 17:21:14,922 [INFO] Problematic normalization
+2022-11-19 17:21:14,922 [INFO] Problematic normalization
+2022-11-19 17:21:14,923 [INFO] Problematic normalization
+2022-11-19 17:21:14,923 [INFO] Problematic normalization
+2022-11-19 17:21:14,924 [INFO] Problematic normalization
+2022-11-19 17:21:14,924 [INFO] Problematic normalization
+2022-11-19 17:21:14,925 [INFO] Problematic normalization
+2022-11-19 17:21:14,925 [INFO] Problematic normalization
+2022-11-19 17:21:14,926 [INFO] Problematic normalization
+2022-11-19 17:21:14,926 [INFO] Problematic normalization
+2022-11-19 17:21:14,927 [INFO] Problematic normalization
+2022-11-19 17:21:14,928 [INFO] Problematic normalization
+2022-11-19 17:21:14,928 [INFO] Problematic normalization
+2022-11-19 17:21:14,929 [INFO] Problematic normalization
+2022-11-19 17:21:14,929 [INFO] Problematic normalization
+2022-11-19 17:21:14,930 [INFO] Problematic normalization
+2022-11-19 17:21:14,931 [INFO] Problematic normalization
+2022-11-19 17:21:14,931 [INFO] Problematic normalization
+2022-11-19 17:21:14,932 [INFO] Problematic normalization
+2022-11-19 17:21:14,932 [INFO] Problematic normalization
+2022-11-19 17:21:14,933 [INFO] Problematic normalization
+2022-11-19 17:21:14,933 [INFO] Problematic normalization
+2022-11-19 17:21:14,934 [INFO] Problematic normalization
+2022-11-19 17:21:14,934 [INFO] Problematic normalization
+2022-11-19 17:21:14,935 [INFO] Problematic normalization
+2022-11-19 17:21:14,936 [INFO] Problematic normalization
+2022-11-19 17:21:14,936 [INFO] Problematic normalization
+2022-11-19 17:21:14,937 [INFO] Problematic normalization
+2022-11-19 17:21:14,937 [INFO] Problematic normalization
+2022-11-19 17:21:14,938 [INFO] Problematic normalization
+2022-11-19 17:21:14,938 [INFO] Problematic normalization
+2022-11-19 17:21:14,939 [INFO] Problematic normalization
+2022-11-19 17:21:14,939 [INFO] Problematic normalization
+2022-11-19 17:21:14,940 [INFO] Problematic normalization
+2022-11-19 17:21:14,940 [INFO] Problematic normalization
+2022-11-19 17:21:18,196 [INFO] Problematic normalization
+2022-11-19 17:21:18,197 [INFO] Problematic normalization
+2022-11-19 17:21:21,455 [INFO] Problematic normalization
+2022-11-19 17:21:25,254 [INFO] Problematic normalization
+2022-11-19 17:21:25,771 [INFO] Problematic normalization
+2022-11-19 17:21:26,629 [INFO] Problematic normalization
+2022-11-19 17:21:26,630 [INFO] Problematic normalization
+2022-11-19 17:21:26,631 [INFO] Problematic normalization
+2022-11-19 17:21:26,631 [INFO] Problematic normalization
+2022-11-19 17:21:26,632 [INFO] Problematic normalization
+2022-11-19 17:21:26,632 [INFO] Problematic normalization
+2022-11-19 17:21:26,633 [INFO] Problematic normalization
+2022-11-19 17:21:26,633 [INFO] Problematic normalization
+2022-11-19 17:21:26,634 [INFO] Problematic normalization
+2022-11-19 17:21:26,634 [INFO] Problematic normalization
+2022-11-19 17:21:26,635 [INFO] Problematic normalization
+2022-11-19 17:21:26,635 [INFO] Problematic normalization
+2022-11-19 17:21:26,636 [INFO] Problematic normalization
+2022-11-19 17:21:26,636 [INFO] Problematic normalization
+2022-11-19 17:21:26,637 [INFO] Problematic normalization
+2022-11-19 17:21:26,637 [INFO] Problematic normalization
+2022-11-19 17:21:26,638 [INFO] Problematic normalization
+2022-11-19 17:21:26,638 [INFO] Problematic normalization
+2022-11-19 17:21:26,639 [INFO] Problematic normalization
+2022-11-19 17:21:26,639 [INFO] Problematic normalization
+2022-11-19 17:21:26,640 [INFO] Problematic normalization
+2022-11-19 17:21:26,640 [INFO] Problematic normalization
+2022-11-19 17:21:26,641 [INFO] Problematic normalization
+2022-11-19 17:21:26,641 [INFO] Problematic normalization
+2022-11-19 17:21:31,961 [INFO] Problematic normalization
+2022-11-19 17:21:46,104 [INFO] [1] TRAIN  loss: 4.688470128835818 acc: 0.011095700416088766
+2022-11-19 17:21:46,105 [INFO] [1] VALIDATION  acc: 0.02967359050445104
+2022-11-19 17:21:46,105 [INFO] 
+2022-11-19 17:21:46,106 [INFO] 
+Testing checkpointed models starting...
+
+2022-11-19 17:21:51,866 [INFO] Label accuracies statistics:
+2022-11-19 17:21:51,867 [INFO] {0: 1.0, 1: 0.5, 2: 0.0, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.0, 14: 0.0, 15: 0.0, 16: 0.0, 17: 0.0, 18: 0.0, 19: 0.0, 20: 0.0, 21: 0.0, 22: 0.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 0.0, 28: 0.0, 29: 0.0, 30: 0.0, 31: 0.0, 32: 0.0, 33: 0.0, 34: 0.0, 35: 0.0, 36: 0.0, 37: 0.0, 38: 0.0, 39: 0.0, 40: 0.0, 41: 0.0, 42: 0.0, 43: 0.0, 44: 0.0, 45: 0.0, 46: 0.0, 47: 0.0, 48: 0.0, 49: 0.0, 50: 0.0, 51: 0.0, 52: 0.0, 53: 0.0, 54: 0.0, 55: 0.0, 56: 0.0, 57: 0.0, 58: 0.0, 59: 0.0, 60: 0.0, 61: 0.0, 62: 0.0, 63: 0.0, 64: 0.0, 65: 0.0, 66: 0.0, 67: 0.0, 68: 0.0, 69: 0.0, 70: 0.0, 71: 0.0, 72: 0.0, 73: 0.0, 74: 0.0, 75: 0.0, 76: 0.0, 77: 0.0, 78: 0.0, 79: 0.0, 80: 0.0, 81: 0.0, 82: 0.0, 83: 0.0, 84: 0.0, 85: 0.0, 86: 0.0, 87: 0.0, 88: 0.0, 89: 0.0, 90: 0.0, 91: 0.0, 92: 0.0, 93: 0.0, 94: 0.0, 95: 0.0, 96: 0.0, 97: 0.0, 98: 0.0, 99: 0.0}
+
+2022-11-19 17:21:51,868 [INFO] checkpoint_t_0  ->  0.023255813953488372
+2022-11-19 17:21:57,657 [INFO] Label accuracies statistics:
+2022-11-19 17:21:57,658 [INFO] {0: 1.0, 1: 0.5, 2: 0.0, 3: 0.0, 4: 0.0, 5: 0.0, 6: 0.0, 7: 0.0, 8: 0.0, 9: 0.0, 10: 0.0, 11: 0.0, 12: 0.0, 13: 0.0, 14: 0.0, 15: 0.0, 16: 0.0, 17: 0.0, 18: 0.0, 19: 0.0, 20: 0.0, 21: 0.0, 22: 0.0, 23: 0.0, 24: 0.0, 25: 0.0, 26: 0.0, 27: 0.0, 28: 0.0, 29: 0.0, 30: 0.0, 31: 0.0, 32: 0.0, 33: 0.0, 34: 0.0, 35: 0.0, 36: 0.0, 37: 0.0, 38: 0.0, 39: 0.0, 40: 0.0, 41: 0.0, 42: 0.0, 43: 0.0, 44: 0.0, 45: 0.0, 46: 0.0, 47: 0.0, 48: 0.0, 49: 0.0, 50: 0.0, 51: 0.0, 52: 0.0, 53: 0.0, 54: 0.0, 55: 0.0, 56: 0.0, 57: 0.0, 58: 0.0, 59: 0.0, 60: 0.0, 61: 0.0, 62: 0.0, 63: 0.0, 64: 0.0, 65: 0.0, 66: 0.0, 67: 0.0, 68: 0.0, 69: 0.0, 70: 0.0, 71: 0.0, 72: 0.0, 73: 0.0, 74: 0.0, 75: 0.0, 76: 0.0, 77: 0.0, 78: 0.0, 79: 0.0, 80: 0.0, 81: 0.0, 82: 0.0, 83: 0.0, 84: 0.0, 85: 0.0, 86: 0.0, 87: 0.0, 88: 0.0, 89: 0.0, 90: 0.0, 91: 0.0, 92: 0.0, 93: 0.0, 94: 0.0, 95: 0.0, 96: 0.0, 97: 0.0, 98: 0.0, 99: 0.0}
+
+2022-11-19 17:21:57,659 [INFO] checkpoint_v_0  ->  0.023255813953488372
+2022-11-19 17:21:57,660 [INFO] 
+The top result was recorded at 0.023255813953488372 testing accuracy. The best checkpoint is line0/checkpoint_t_0.
+2022-11-19 17:21:57,911 [INFO] 
+Any desired statistics have been plotted.
+The experiment is finished.
