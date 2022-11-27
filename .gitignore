@@ -1,2 +1,3 @@
-.*/out-checkpoints
-.*/out-img
+# .*/out-checkpoints
+# .*/out-img
+./out-checkpoints/*
