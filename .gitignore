@@ -1,3 +1,8 @@
-# .*/out-checkpoints
+.*/out-checkpoints
 # .*/out-img
-./out-checkpoints/*
+*.pth
+*.log
+*.pyc*
+NOTEPAD.txt
+*.pyc
+*$*.xlsx

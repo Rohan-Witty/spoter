@@ -1,0 +1,4 @@
+ python -m train --experiment_name bl_2e-3lr_0.1mom_1e-4wd --epochs 30 --lr 2e-3 --training_set_path  WLASL100_train_25fps.csv --validation_set_path WLASL100_val_25fps.csv --testing_set_path WLASL100_test_25fps.csv --num_classes 100 --momentum 0.1 --weight_decay 1e-4
+ python -m train --experiment_name bl_2e-3lr_0.1mom_0wd --epochs 30 --lr 2e-3 --training_set_path  WLASL100_train_25fps.csv --validation_set_path WLASL100_val_25fps.csv --testing_set_path WLASL100_test_25fps.csv --num_classes 100 --momentum 0.1 --weight_decay 0
+ python -m train --experiment_name bl_1e-3lr_0mom_0wd --epochs 30 --lr 2e-3 --training_set_path  WLASL100_train_25fps.csv --validation_set_path WLASL100_val_25fps.csv --testing_set_path WLASL100_test_25fps.csv --num_classes 100 --momentum 0 --weight_decay 0
+ echo done

@@ -1,0 +1,5 @@
+Experiment Name,Epochs,Learning Rate,Momentum ,Weight Decay,Testing Accuracy 
+baseline_model,15,1.00E-03,0,0,0.341085271
+hyperparameter_search_0_0,15,2.00E-03,0,0,0.348837
+hyperparameter_search_0.1_0.0001,15,2.00E-03,0.1,1.00E-04,0.356589
+hyperparameter_search_0.1_0,15,2.00E-03,0.1,0,0.356589

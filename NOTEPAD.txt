@@ -1,3 +1,4 @@
+IDEAS:
 - Graphs
 	- Hyperparameter tuning (Ensure parameters remain similar)
         Read Leslie Smith's paper on hyperparameter tuning
@@ -6,11 +7,11 @@
 		- 	Momentum 
 		- 	Weight decay
 		
-		-	Number of encoder layers
-		-	Number of decoder layers
-		-	Number of heads
+		-	Number of encoder layers 
+		-	Number of decoder layers 
+		-	Number of heads 
 
-- What does it do well on
+What does it do well on
 	- Confusion Matrix
 
 
